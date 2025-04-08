@@ -191,13 +191,13 @@ class MVBench_dataset(Dataset):
         return torch_imgs
 
     def qa_template(self, data):
-        question = f"{data['question']}\n"
+        question = f"{data['question']}\nOptions:\n"
         answer = data['answer']
         answer_idx = -1
         all_choices = []
         index2ans = {}
         for idx, c in enumerate(data['candidates']):
-            question += f"({chr(ord('A') + idx)}) {c}\n"
+            question += f"{chr(ord('A') + idx)}. {c}\n"
             all_choices.append(chr(ord('A') + idx))
             index2ans[chr(ord('A') + idx)] = c
             if c == answer:
@@ -220,6 +220,7 @@ class MVBench_dataset(Dataset):
             
         return {
             'video': torch_imgs, 
+            'video_path': video_path,
             'question': question, 
             'answer': answer, 
             'all_choices': all_choices,
@@ -229,61 +230,21 @@ class MVBench_dataset(Dataset):
 
 
 def parse_multi_choice_response(response, all_choices, index2ans):
+    all_choices_lower = [choice.lower() for choice in all_choices]
     answer_pattern = r'<answer>\s*(.*?)\s*</answer>'
     match = re.search(answer_pattern, response)
     if match:
         response = match.group(1).strip()
-    for char in [",", ".", "!", "?", ";", ":", "'"]:
-        response = response.strip(char)
-    if len(response) > 0:
-        if response[0] in all_choices:
-            return response[0]
-    response = " " + response + " "  # add space to avoid partial match
-
-    index_ans = True
-    ans_with_brack = False
-    candidates = []
-    for choice in all_choices:  # e.g., (A) (B) (C) (D)
-        if f"({choice})" in response:
-            candidates.append(choice)
-            ans_with_brack = True
-
-    if len(candidates) == 0:
-        for choice in all_choices:  # e.g., A B C D
-            if f" {choice} " in response:
-                candidates.append(choice)
-
-    # if all above doesn't get candidates, check if the content is larger than 5 tokens and try to parse the example
-    if len(candidates) == 0 and len(response.split()) > 5:
-        for index, ans in index2ans.items():
-            if ans.lower() in response.lower():
-                candidates.append(index)
-                index_ans = False  # it's content ans.
-
-    if len(candidates) == 0:  # still not get answer, randomly choose one.
-        pred_index = random.choice(all_choices)
-    elif len(candidates) > 1:
-        start_indexes = []
-        if index_ans:
-            if ans_with_brack:
-                for can in candidates:
-                    index = response.rfind(f"({can})")
-                    start_indexes.append(index)  # -1 will be ignored anyway
-                # start_indexes = [generated_response.index(f'({can})') for can in candidates]
+        if len(response) > 0:
+            if response[0] in all_choices or response[0] in all_choices_lower:
+                return response[0].upper()
             else:
-                for can in candidates:
-                    index = response.rfind(f" {can} ")
-                    start_indexes.append(index)
-        else:
-            for can in candidates:
-                index = response.lower().rfind(index2ans[can].lower())
-                start_indexes.append(index)
-        # get the last one
-        pred_index = candidates[np.argmax(start_indexes)]
-    else:  # if only one candidate, use it.
-        pred_index = candidates[0]
-
-    return pred_index
+                for choice in all_choices:
+                    if f"({choice})" in response or f"({choice.lower()})" in response:
+                        return choice
+                return random.choice(all_choices)
+    else:
+        return random.choice(all_choices)
 
 def eval_model(args):
     # Model
@@ -308,6 +269,7 @@ def eval_model(args):
     acc_dict = {}
 
     for example in tqdm(dataset):
+        print("example:",example['video_path'])
         task_type = example['task_type']
         if task_type not in acc_dict:
             acc_dict[task_type] = [0, 0] # correct, total
@@ -318,6 +280,7 @@ def eval_model(args):
         question = example["question"]
         question = "<image>" + "\n" + question + "\n" + "Output the thinking process in <think> </think> and final answer (option) in <answer> </answer> tags."
         #question = "<image>" + "\n" + question + "\n" + "Answer with the option's letter from the given choices directly."
+        print("question:",question)
         
         msg = Message()
         msg.add_message(question)
@@ -328,11 +291,9 @@ def eval_model(args):
         with torch.inference_mode():
             output_ids = model.generate(
                 input_ids,
-                images=None,
                 video=example["video"],
-                do_sample=True if args.temperature > 0 else False,
-                temperature=args.temperature,
-                num_beams=args.num_beams,
+                do_sample=True,
+                num_beams=1,
                 max_new_tokens=1024,
                 use_cache=True,
                 pad_token_id=tokenizer.pad_token_id,
@@ -348,7 +309,8 @@ def eval_model(args):
         res_list.append({
             'outputs': outputs,
             'pred': pred_ans,
-            'gt': gt
+            'gt': gt,
+            'path': example['video_path']
         })
         
         if pred_ans==gt:
@@ -373,7 +335,10 @@ def eval_model(args):
     os.makedirs(os.path.dirname(answers_file), exist_ok=True)
     with open(answers_file, "w") as f:
         json.dump(final_res, f)
-        json.dump(res_list, f)
+        f.write("\n")
+        for item in res_list:
+            json.dump(item, f)
+            f.write("\n")
         
 
 

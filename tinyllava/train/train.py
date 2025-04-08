@@ -7,7 +7,7 @@ import tokenizers
 import transformers
 from datasets import Dataset, DatasetDict
 
-from tinyllava.train.tinyllava_trainer import LLaVATrainer_Reason
+from tinyllava.train.tinyllava_trainer_reason import LLaVATrainer_Reason
 from tinyllava.training_recipe import TrainingRecipeFactory
 from tinyllava.utils import *
 from tinyllava.model import *
@@ -76,15 +76,15 @@ def accuracy_reward(completions, solution, **kwargs):
 
 def extract_first_think_answer(content):
     think_pattern = r"<think>(.*?)</think>"
-    answer_pattern = r"<answer>(.*?)</answer>"
+    #answer_pattern = r"<answer>(.*?)</answer>"
 
     think_match = re.search(think_pattern, content, re.DOTALL)
-    answer_match = re.search(answer_pattern, content, re.DOTALL)
+    #answer_match = re.search(answer_pattern, content, re.DOTALL)
 
     think_content = think_match.group(1).strip() if think_match else None
-    answer_content = answer_match.group(1).strip() if answer_match else None
+    #answer_content = answer_match.group(1).strip() if answer_match else None
 
-    return think_content, answer_content
+    return think_content
 
 def recheck_format(content):
     think_open_count = content.count("<think>")
@@ -98,7 +98,7 @@ def recheck_format(content):
         return False
 
 def has_repeated_content(text):
-    sentences = re.split(r'[.!?]', text)
+    sentences = re.split(r'[,.!?]', text)
     seen = set()
     for sentence in sentences:
         sentence = sentence.strip()
@@ -107,9 +107,29 @@ def has_repeated_content(text):
         seen.add(sentence)
     return False
 
+"""
+def format_reward(completions, **kwargs):
+    pattern = r"<think>.*?</think>\s*<answer>.*?</answer>"
+    completion_contents = [completion[0]["content"] for completion in completions]
+    matches = [re.fullmatch(pattern, content, re.DOTALL) for content in completion_contents]
+    return [1.0 if match else 0.0 for match in matches]
+"""
 
 def format_reward(completions, **kwargs):
-    """Reward function that checks if the completion has a specific format."""
+    pattern = r"<think>.*?</think>\s*<answer>.*?</answer>"
+    completion_contents = [completion[0]["content"] for completion in completions]
+    reward = []
+    for content in completion_contents:
+        for_re = 0.0
+        if re.fullmatch(pattern, content, re.DOTALL) and recheck_format(content):
+            for_re += 0.5
+            think = extract_first_think_answer(content)
+            for_re += min(len(think) / 1200, 1) * 0.5
+        reward.append(for_re)
+    return reward
+
+"""
+def format_reward(completions, **kwargs):
     pattern = r"<think>.*?</think>\s*<answer>.*?</answer>"
     completion_contents = [completion[0]["content"] for completion in completions]
     reward = []
@@ -119,7 +139,7 @@ def format_reward(completions, **kwargs):
             for_re += 0.6
             if recheck_format(content):
                 think, answer = extract_first_think_answer(content)
-                if len(think) > 600:
+                if len(think) > 300:
                     for_re += 0.2
                     if not has_repeated_content(think):
                         for_re += 0.2
@@ -129,6 +149,7 @@ def format_reward(completions, **kwargs):
         else:
             reward.append(0.0)
     return reward
+"""
 
 QUESTION_TEMPLATE = "{Question} Output the thinking process in <think> </think> and final answer (option) in <answer> </answer> tags."
 def make_conversation_video(example):
