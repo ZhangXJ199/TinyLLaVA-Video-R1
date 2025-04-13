@@ -3,7 +3,7 @@
 VIDEO_DATA_PATH="/data/vlm/zxj/data/Nextqa_reason/nextqa-coldstart-16.json"
 VIDEO_PATH="/data/vlm/zxj/data/Nextqa_reason"
 
-MODEL_PATH=/mnt/data/zxj/result/store_llava_video_factory/llava_video_factory-1.13/tiny-llava-Qwen2.5-3B-siglip-so400m-patch14-384-base-finetune
+MODEL_PATH=/data/vlm/zxj/result/TinyLLaVA-Video-Group-16-512
 LLM_VERSION=/mnt/data/zxj/checkpoints/Qwen2.5-3B # llm path
 VT_VERSION=/mnt/data/zxj/checkpoints/siglip-so400m-patch14-384 #vision tower path
 CN_VERSION=groupresampler #connector type
