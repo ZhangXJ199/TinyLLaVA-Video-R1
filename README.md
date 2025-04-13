@@ -26,7 +26,7 @@
 ## 📰 News
 
 ## <img id="painting_icon" width="3%" src="https://cdn-icons-png.flaticon.com/256/2435/2435606.png"> About
-TinyLLaVA-Video-R1 is a small-scale video reasoning model built upon the fully open-source [TinyLLaVA-Video](https://github.com/ZhangXJ199/TinyLLaVA-Video) framework. Designed for researchers with limited computational resources, it leverages reinforcement learning to enhance reasoning abilities while maintaining a model size under 4B parameters. TinyLLaVA-Video-R1 demonstrates improved video question-answering performance and reflective reasoning behaviors ("aha moments"). The model and training process are fully traceable, ensuring reproducibility and reliability. This repository provides the model, code, and experimental setups for easy replication.
+**TinyLLaVA-Video-R1** is a small-scale video reasoning model built upon the fully open-source [TinyLLaVA-Video](https://github.com/ZhangXJ199/TinyLLaVA-Video) framework. Designed for researchers with limited computational resources, it leverages reinforcement learning to enhance reasoning abilities while maintaining a model size under 4B parameters. **TinyLLaVA-Video-R1** demonstrates improved video question-answering performance and reflective reasoning behaviors ("**aha moments**"). The model and training process are fully traceable, ensuring reproducibility and reliability. This repository provides the model, code, and experimental setups for easy replication.
 
 <div align="center">
 <img src="images/case.png" alt="framework" width="90%" height="auto">
@@ -150,7 +150,7 @@ We currently provide evaluations on 4 benchmarks, including [Video-MME](https://
    ```
 
 ## 📊 Results
-The performance of TinyLLaVA-Video-R1 on multiple benchmarks. "Option" indicates that the model only needs to answer with the selected choice, while "Reason" means the model must output both the answer and the reasoning process according to the format requirements. Here, MMVU is categorized as a video reasoning benchmark, the remaining benchmarks are designed for general-purpose video evaluation. The best results are indicated by boldface.
+The performance of **TinyLLaVA-Video-R1** on multiple benchmarks. "Option" indicates that the model only needs to answer with the selected choice, while "Reason" means the model must output both the answer and the reasoning process according to the format requirements. Here, MMVU is categorized as a video reasoning benchmark, the remaining benchmarks are designed for general-purpose video evaluation. The best results are indicated by boldface.
 
 <div align="center">
 <img src="images/result.jpg" alt="framework" width="75%" height="auto">
@@ -160,7 +160,7 @@ The performance of TinyLLaVA-Video-R1 is significantly higher than TinyLLaVA-Vid
 
 ## <img id="painting_icon" width="3%" src="https://cdn-icons-png.flaticon.com/256/3176/3176298.png"> Aha Moment 
 
-TinyLLaVA-Video-R1 exhibits "aha moments" where it revisits and refines its initial reasoning. As shown in the image below, the model self-corrects by evaluating different options and improving its responses, which enhances accuracy and interpretability. This reflective behavior distinguishes it from traditional models, offering greater transparency in the reasoning process.
+**TinyLLaVA-Video-R1** exhibits "aha moments" where it revisits and refines its initial reasoning. As shown in the image below, the model self-corrects by evaluating different options and improving its responses, which enhances accuracy and interpretability. This reflective behavior distinguishes it from traditional models, offering greater transparency in the reasoning process.
 
 <div align="center">
 <img src="images/aha_moment.jpg" alt="framework" width="90%" height="auto">
