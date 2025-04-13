@@ -61,6 +61,10 @@ pip install -e .
 
 ## 📌 Usage
 
+### Trained Model
+
+[TinyLLaVA-Video-R1](https://huggingface.co/Zhang199/TinyLLaVA-Video-R1)
+
 ### 1. Data Preparation
 We select multiple choice questions from the NextQA subset of [LLaVA-Video-178K](https://huggingface.co/datasets/lmms-lab/LLaVA-Video-178K) as training data. To maintain manageable training time with limited computational resources, we only choose the subset of data with a duration of 0 to 30 seconds, which contains 5,496 samples. The training data can be downloaded from [here](https://huggingface.co/datasets/Zhang199/TinyLLaVA-Video-R1-training-data).
 
