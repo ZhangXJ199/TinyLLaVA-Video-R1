@@ -74,6 +74,7 @@ dataset
 #### 1. Cold Start
 
 Option1: You can directly download [TinyLLaVA-Video-ColdStart](https://huggingface.co/Zhang199/TinyLLaVA-Video-Coldstart_NextQA_16).
+
 Option2: You can train the model yourself: 
 
 Replace data paths and model paths with yours in `scripts/train/train_qwen2_coldstart.sh`
