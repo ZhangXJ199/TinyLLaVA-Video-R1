@@ -137,6 +137,14 @@ We currently provide evaluations on 4 benchmarks, including [Video-MME](https://
    ```bash
    CUDA_VISIBLE_DEVICES=0 bash scripts/eval/mmvu.sh
 
+### Quick Inference Scripts
+
+1. Please change ``model_path``, ``prompt`` and ``video_file`` in ``eval.py``.
+2.  Please use the following command for single-gpu inference.
+   ```bash
+   CUDA_VISIBLE_DEVICES=0 python eval.py
+   ```
+
 ## 📊 Results
 The performance of TinyLLaVA-Video-R1 on multiple benchmarks. "Option" indicates that the model only needs to answer with the selected choice, while "Reason" means the model must output both the answer and the reasoning process according to the format requirements. Here, MMVU is categorized as a video reasoning benchmark, the remaining benchmarks are designed for general-purpose video evaluation. The best results are indicated by boldface.
 
