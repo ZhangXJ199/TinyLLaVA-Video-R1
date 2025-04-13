@@ -3,7 +3,7 @@
 VIDEO_DATA_PATH="/mnt/data/zxj/data/Nextqa_reason"
 VIDEO_PATH="/mnt/data/zxj/data/Nextqa_reason/nextqa_0-30s.jsonl"
 
-MODEL_PATH=/mnt/data/zxj/result/reasoning/TinyLLaVA-Video-Coldstart-nextqa-16
+MODEL_PATH=/mnt/data/zxj/result/reasoning/TinyLLaVA-Video-Coldstart_NextQA_16
 LLM_VERSION=/mnt/data/zxj/checkpoints/Qwen2.5-3B # llm path
 VT_VERSION=/mnt/data/zxj/checkpoints/siglip-so400m-patch14-384 #vision tower path
 CN_VERSION=groupresampler #connector type
