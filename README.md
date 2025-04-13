@@ -137,7 +137,7 @@ We currently provide evaluations on 4 benchmarks, including [Video-MME](https://
 The performance of TinyLLaVA-Video-R1 on multiple benchmarks. "Option" indicates that the model only needs to answer with the selected choice, while "Reason" means the model must output both the answer and the reasoning process according to the format requirements. Here, MMVU is categorized as a video reasoning benchmark, the remaining benchmarks are designed for general-purpose video evaluation. The best results are indicated by boldface.
 
 <div align="center">
-<img src="images/result.jpg" alt="framework" width="90%" height="auto">
+<img src="images/result.jpg" alt="framework" width="75%" height="auto">
 </div>
 
 The performance of TinyLLaVA-Video-R1 is significantly higher than TinyLLaVA-Video-ColdStart, especially in benchmarks that test reasoning abilities such as MMVU. Moreover, it outperforms TinyLLaVA-Video-SFT across all benchmarks, highlighting the effectiveness of the reinforcement learning approach employed.
