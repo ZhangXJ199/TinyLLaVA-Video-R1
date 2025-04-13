@@ -127,6 +127,11 @@ We currently provide evaluations on 4 benchmarks, including [Video-MME](https://
    CUDA_VISIBLE_DEVICES=0 bash scripts/eval/mmvu.sh
 
 ## 📊 Results
+The performance of TinyLLaVA-Video-R1 on multiple benchmarks. "Option" indicates that the model only needs to answer with the selected choice, while "Reason" means the model must output both the answer and the reasoning process according to the format requirements. Here, MMVU is categorized as a video reasoning benchmark, the remaining benchmarks are designed for general-purpose video evaluation. The best results are indicated by boldface.
+
+<div align="center">
+<img src="images/result.jpg" alt="framework" width="90%" height="auto">
+</div>
 
 ## 😄 Acknowledgement
 
