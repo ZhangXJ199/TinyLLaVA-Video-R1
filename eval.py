@@ -1,10 +1,8 @@
 from tinyllava.eval.run_tiny_llava import eval_model
 
-model_path = "/mnt/data/zxj/result/reasoning/TinyLLaVA-Video-Group-16-512"
-#"/mnt/data/zxj/result/reasoning/llava_video_reason-3.16/tiny-llava-Qwen2.5-3B-siglip-so400m-patch14-384-base-reason"
-#"/mnt/data/zxj/result/store_llava_video_factory/llava_video_factory-1.13/tiny-llava-Qwen2.5-3B-siglip-so400m-patch14-384-base-finetune"
-prompt = "What happened before the person held the food?" 
-video_file = "/mnt/data/zxj/others/demo_video/CJ58B.mp4"
+model_path = "/data/vlm/zxj/result/reasoning/TinyLLaVA-Video-SFT-nextqa"
+prompt = "What is the action performed by the person in the video?\nA. drop\nB. sit down\nC. pick up\nD. squat down\nOutput the thinking process in <think> </think> and final answer (option) in <answer> </answer> tags." 
+video_file = "/data/vlm/zxj/data/MVBench/video/nturgbd/S009C003P016R002A006_rgb.avi"
 conv_mode = "qwen2_base" # or llama, gemma, etc
 
 args = type('Args', (), {
@@ -15,7 +13,7 @@ args = type('Args', (), {
     "image_file": None, #image_file,
     "video_file": video_file, #video_file,
     "sep": ",",
-    "temperature": 0,
+    "temperature": 0.1,
     "top_p": None,
     "num_beams": 1,
     "num_frame": 16,
