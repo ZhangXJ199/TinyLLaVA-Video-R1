@@ -71,6 +71,19 @@ dataset
 
 ### 2. Train
 
+#### 1. Cold Start
+
+You can either directly download [TinyLLaVA-Video-ColdStart](https://huggingface.co/Zhang199/TinyLLaVA-Video-Coldstart_NextQA_16), or train the model yourself:
+
+Replace data paths and model paths with yours in `scripts/train/train_qwen2_coldstart.sh`
+
+```bash
+bash scripts/train/train_qwen2_coldstart.sh
+```
+
+#### 2. GRPO Training
+
+
 
 ### 3. Evaluation
 
