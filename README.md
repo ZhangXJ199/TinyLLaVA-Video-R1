@@ -1,5 +1,6 @@
-<h2 align="center"><img src="images/LOGO.jpg" width="3%" alt="icon">TinyLLaVA-Video-R1</a><h2 align="center">
+<h2 align="center"><img src="images/LOGO.jpg" width="3%" alt="icon"> TinyLLaVA-Video-R1</a>
 
+<h5 align="center">
 <div align="center">
 
 [Xingjian Zhang](https://scholar.google.com/citations?user=H34fwioAAAAJ&hl=zh-CN)<sup>1*</sup>,
