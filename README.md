@@ -149,9 +149,9 @@ TinyLLaVA-Video-R1 exhibits "aha moments" where it revisits and refines its init
 <img src="images/aha_moment.jpg" alt="framework" width="90%" height="auto">
 </div>
 
-## 😄 Acknowledgement
-
 ## 📨 Contact
+
+If you have any questions or suggestions, please feel free to contact us at [zhangxingjian@buaa.edu.cn](zhangxingjian@buaa.edu.cn).
 
 ## 📝 Citation
 
