@@ -172,7 +172,7 @@ The performance of TinyLLaVA-Video-R1 is significantly higher than TinyLLaVA-Vid
 
 ## 📨 Contact
 
-If you have any questions or suggestions, please feel free to contact us at [zhangxingjian@buaa.edu.cn](zhangxingjian@buaa.edu.cn).
+If you have any questions or suggestions, please feel free to contact us at ``zhangxingjian@buaa.edu.cn``.
 
 ## ❤️ Community efforts
 * This repository is based on [TinyLLaVA-Video](https://github.com/ZhangXJ199/TinyLLaVA-Video) project.
