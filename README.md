@@ -140,3 +140,7 @@ The performance of TinyLLaVA-Video-R1 is significantly higher than TinyLLaVA-Vid
 ## 📨 Contact
 
 ## 📝 Citation
+
+## ❤️ Community efforts
+* This repository is based on [TinyLLaVA-Video](https://github.com/ZhangXJ199/TinyLLaVA-Video) project.
+* The implementation of the GRPO algorithm refers to the [open-r1-multimodal](https://github.com/EvolvingLMMs-Lab/open-r1-multimodal) project. Great work!
