@@ -14,22 +14,19 @@ classifiers = [
 ]
 dependencies = [
     "torch", "torchvision", "tiktoken", "openpyxl", "tensorboardX",
-    "transformers", "tokenizers", "sentencepiece", "shortuuid",
-    "accelerate", "bitsandbytes", "peft",
-    "pydantic", "markdown2[all]", "numpy", "scikit-learn",
-    "gradio", "gradio_client",
-    "requests", "httpx", "uvicorn", "fastapi",
-    "einops", "einops-exts", "timm",
-    "deepspeed", "ninja", "wandb", 
-    "pytorchvideo", "fastparquet", "av", "decord"
+    "transformers", "tokenizers", "sentencepiece", "shortuuid", "accelerate", 
+    "bitsandbytes", "peft", "pydantic", "markdown2[all]", "numpy", "scikit-learn",
+    "gradio", "gradio_client", "requests", "httpx", "uvicorn", "fastapi",
+    "einops", "einops-exts", "timm", "deepspeed", "ninja", "wandb",
+    "pytorchvideo", "fastparquet", "av", "decord", "trl", "math-verify"
 ]
 
 [project.optional-dependencies]
 train = ["deepspeed", "ninja", "wandb"]
 
 [project.urls]
-"Homepage" = "https://github.com/DLCV-BUAA/TinyLLaVABench"
-"Bug Tracker" = "https://github.com/DLCV-BUAA/TinyLLaVABench/issues"
+"Homepage" = "https://github.com/ZhangXJ199/TinyLLaVA-Video-R1"
+"Bug Tracker" = "https://github.com/ZhangXJ199/TinyLLaVA-Video-R1/issues"
 
 [tool.setuptools.packages.find]
 exclude = ["assets*", "benchmark*", "docs", "dist*", "playground*", "scripts*", "tests*"]
