@@ -1,4 +1,4 @@
-<h2 align="center"><img src="images/LOGO.jpg" width="36.5" height="30" alt="vertical-align: middle;"> TinyLLaVA-Video-R1
+<h2 align="center">TinyLLaVA-Video-R1
 </a>
 
 <h5 align="center">
