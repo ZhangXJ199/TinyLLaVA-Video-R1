@@ -133,7 +133,7 @@ The performance of TinyLLaVA-Video-R1 on multiple benchmarks. "Option" indicates
 <img src="images/result.jpg" alt="framework" width="90%" height="auto">
 </div>
 
-The performance of TinyLLaVA-Video-R1 is significantly higher than TinyLLaVA-Video-ColdStart, especially in benchmarks that test reasoning abilities such as MVBench and MMVU. Moreover, it outperforms TinyLLaVA-Video-SFT across all benchmarks, highlighting the effectiveness of the reinforcement learning approach employed.
+The performance of TinyLLaVA-Video-R1 is significantly higher than TinyLLaVA-Video-ColdStart, especially in benchmarks that test reasoning abilities such as MMVU. Moreover, it outperforms TinyLLaVA-Video-SFT across all benchmarks, highlighting the effectiveness of the reinforcement learning approach employed.
 
 ## 😄 Acknowledgement
 
