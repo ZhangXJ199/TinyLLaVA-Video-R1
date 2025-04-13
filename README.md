@@ -2,7 +2,7 @@
 
 <div align="center">
 
-[Xingjian Zhang](https://scholar.google.com/citations?user=H34fwioAAAAJ&hl=zh-CN)<sup> *</sup>,
+[Xingjian Zhang](https://scholar.google.com/citations?user=H34fwioAAAAJ&hl=zh-CN)<sup>1*</sup>,
 [Siwei Wen](https://scholar.google.com/citations?user=kJRiUYwAAAAJ&hl=zh-CN)<sup>1,2*</sup>,
 [Wenjun Wu](https://iai.buaa.edu.cn/info/1013/1093.htm)<sup>1,2</sup>, 
 [Lei Huang](https://huangleibuaa.github.io/)<sup>1,2,✉</sup>
