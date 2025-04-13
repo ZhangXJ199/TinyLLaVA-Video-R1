@@ -2,9 +2,12 @@
 
 <div align="center">
 
-[Xingjian Zhang](https://scholar.google.com/citations?user=H34fwioAAAAJ&hl=zh-CN)<sup>1,*</sup>, [Siwei Wen](https://scholar.google.com/citations?user=kJRiUYwAAAAJ&hl=zh-CN)<sup>1,2*</sup>, [Wenjun Wu](https://iai.buaa.edu.cn/info/1013/1093.htm)<sup>1,2</sup>, [Lei Huang](https://huangleibuaa.github.io/)<sup>1,2,✉</sup>
+[Xingjian Zhang](https://scholar.google.com/citations?user=H34fwioAAAAJ&hl=zh-CN)<sup> *</sup>,
+[Siwei Wen](https://scholar.google.com/citations?user=kJRiUYwAAAAJ&hl=zh-CN)<sup>1,2*</sup>,
+[Wenjun Wu](https://iai.buaa.edu.cn/info/1013/1093.htm)<sup>1,2</sup>, 
+[Lei Huang](https://huangleibuaa.github.io/)<sup>1,2,✉</sup>
 
-<sup>1</sup>SKLCCSE, Institute of Artificial Intelligence, Beihang University, 
+<sup>1</sup>SKLCCSE, Institute of Artificial Intelligence, Beihang University, <br>
 <sup>2</sup>Beijing Advanced Innovation Center for Future Blockchain and Privacy Computing, Beihang University
 
 </div>
