@@ -149,11 +149,13 @@ TinyLLaVA-Video-R1 exhibits "aha moments" where it revisits and refines its init
 <img src="images/aha_moment.jpg" alt="framework" width="90%" height="auto">
 </div>
 
+## 📝 Citation
+
+
+
 ## 📨 Contact
 
 If you have any questions or suggestions, please feel free to contact us at [zhangxingjian@buaa.edu.cn](zhangxingjian@buaa.edu.cn).
-
-## 📝 Citation
 
 ## ❤️ Community efforts
 * This repository is based on [TinyLLaVA-Video](https://github.com/ZhangXJ199/TinyLLaVA-Video) project.
