@@ -99,7 +99,7 @@ bash scripts/train/train_qwen2_coldstart.sh
 
 #### 2. GRPO Training
 
-Replace data paths, output_dir and adjust GPU ids (localhost) with yours in `scripts/train/train_qwen2_reason_nextqa.sh`
+Replace data paths and output_dir with yours in `scripts/train/train_qwen2_reason_nextqa.sh`
 
 ```bash
 bash scripts/train/train_qwen2_reason_nextqa.sh
