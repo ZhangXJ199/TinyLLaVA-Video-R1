@@ -55,7 +55,7 @@ class LLaVATrainer_Reason(Trainer):
             return features
 
         self.beta = 0.01 #args.beta
-        self.num_generations = 8 #8 #args.num_generations  # = G in the GRPO paper
+        self.num_generations = 8 #args.num_generations  # = G in the GRPO paper
 
         model.warnings_issued["estimate_tokens"] = True
         self._metrics = defaultdict(list)
@@ -95,7 +95,6 @@ class LLaVATrainer_Reason(Trainer):
         prompt_inputs = {}
         
         prompts = [x["prompt"] for x in inputs]
-        print("prompts:",prompts)
         prompts_text = []
         for example in inputs:
             query = DEFAULT_IMAGE_TOKEN + example["prompt"][0]["content"][1]["text"]
@@ -104,8 +103,6 @@ class LLaVATrainer_Reason(Trainer):
             result = self.text_processor(msg.messages, mode='eval')
             prompts_text.append(result['prompt'])
             prompt_inputs["input_ids"] = result['input_ids'].unsqueeze(0).cuda()
-            
-        print("prompts_text:",prompts_text)
         
         for (cur_idx, cur_input) in enumerate(inputs):
             video_file = self.data_path + inputs[cur_idx]["video_filename"][1:]
@@ -174,7 +171,6 @@ class LLaVATrainer_Reason(Trainer):
 
         completion_ids = prompt_completion_ids
         conpletion_ids_length = completion_ids.shape[1]
-        print("completion_ids:",completion_ids.shape)
 
         # Mask everything after the first EOS token
         is_eos = completion_ids == self.processing_class.eos_token_id
@@ -215,13 +211,10 @@ class LLaVATrainer_Reason(Trainer):
             output_reward_func = reward_func(prompts=prompts, completions=completions, **reward_kwargs) #torch.Size([num_generations])
             rewards_per_func[:, i] = torch.tensor(output_reward_func, dtype=torch.float32, device=device) #torch.Size([num_generations])
         
-        print("rewards_per_func:",rewards_per_func)
         acc_reward = rewards_per_func[:, 0]
         format_reward = rewards_per_func[:, 1]
         rewards = acc_reward + (2 * acc_reward - 1) * format_reward
-        print("rewards before:",rewards)
         rewards = torch.where(rewards == 0, torch.tensor(-2.0, device=rewards.device, dtype=rewards.dtype), rewards)
-        print("rewards after:",rewards)
         
         """
         # Sum the rewards from all reward functions
@@ -241,7 +234,6 @@ class LLaVATrainer_Reason(Trainer):
 
         noise = torch.randn_like(advantages) * 0.02
         advantages = advantages + noise
-        print("advantages:",advantages)
 
         # x - x.detach() allows for preserving gradients from x
         per_token_loss = torch.exp(per_token_logps - per_token_logps.detach()) * advantages.unsqueeze(1)
@@ -266,8 +258,6 @@ class LLaVATrainer_Reason(Trainer):
 
         mean_kl = ((per_token_kl * completion_mask).sum(dim=1) / completion_mask.sum(dim=1)).mean()
         self._metrics["kl"].append(self.accelerator.gather_for_metrics(mean_kl).mean().item())
-
-        print("loss:",loss)
         
         return loss
     
