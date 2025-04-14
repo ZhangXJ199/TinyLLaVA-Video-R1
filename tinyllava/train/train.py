@@ -128,29 +128,6 @@ def format_reward(completions, **kwargs):
         reward.append(for_re)
     return reward
 
-"""
-def format_reward(completions, **kwargs):
-    pattern = r"<think>.*?</think>\s*<answer>.*?</answer>"
-    completion_contents = [completion[0]["content"] for completion in completions]
-    reward = []
-    for content in completion_contents:
-        for_re = 0.0
-        if re.fullmatch(pattern, content, re.DOTALL):
-            for_re += 0.6
-            if recheck_format(content):
-                think, answer = extract_first_think_answer(content)
-                if len(think) > 300:
-                    for_re += 0.2
-                    if not has_repeated_content(think):
-                        for_re += 0.2
-            else:
-                for_re = for_re - 0.5
-            reward.append(for_re)
-        else:
-            reward.append(0.0)
-    return reward
-"""
-
 QUESTION_TEMPLATE = "{Question} Output the thinking process in <think> </think> and final answer (option) in <answer> </answer> tags."
 def make_conversation_video(example):
     return {
