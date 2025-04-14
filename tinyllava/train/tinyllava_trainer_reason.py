@@ -55,7 +55,8 @@ class LLaVATrainer_Reason(Trainer):
             return features
 
         self.beta = 0.01 #args.beta
-        self.num_generations = 8 #args.num_generations  # = G in the GRPO paper
+        self.num_generations = 8 # = G in the GRPO paper
+        self.num_frame = 16
 
         model.warnings_issued["estimate_tokens"] = True
         self._metrics = defaultdict(list)
@@ -112,8 +113,7 @@ class LLaVATrainer_Reason(Trainer):
             video_data = video_data['video'].permute(1, 0, 2, 3) #torch.Size([l, 3, W, H])
 
             total_frames = video_data.shape[0]
-            num_frame = 16
-            frame_indices = np.linspace(0, total_frames - 1, num_frame, dtype=int)
+            frame_indices = np.linspace(0, total_frames - 1, self.num_frame, dtype=int)
             video_data = video_data[frame_indices]
             
             videos = []
