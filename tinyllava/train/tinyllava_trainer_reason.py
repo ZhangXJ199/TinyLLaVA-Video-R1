@@ -147,7 +147,6 @@ class LLaVATrainer_Reason(Trainer):
                     completion, skip_special_tokens=True
                 )[0]
                 outputs = outputs.strip()
-                print("outputs:",outputs)
 
             # Stack all completions and pad if needed
             max_length = max(completion.size(1) for completion in all_completions)
