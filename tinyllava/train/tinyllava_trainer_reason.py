@@ -113,12 +113,7 @@ class LLaVATrainer_Reason(Trainer):
 
             total_frames = video_data.shape[0]
             num_frame = 16
-            max_frame = 64
-            if num_frame > 0:
-                frame_indices = np.linspace(0, total_frames - 1, num_frame, dtype=int)
-            else:
-                num_frames_to_extract = min(max_frame, max(1, int(duration)))
-                frame_indices = np.linspace(0, total_frames - 1, num_frames_to_extract, dtype=int)
+            frame_indices = np.linspace(0, total_frames - 1, num_frame, dtype=int)
             video_data = video_data[frame_indices]
             
             videos = []
