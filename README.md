@@ -17,7 +17,7 @@
 
 <div align="center">
 
-[![arXiv](https://img.shields.io/badge/Arxiv-2503.14905-AD1C18.svg?logo=arXiv)](https://github.com/ZhangXJ199/TinyLLaVA-Video-R1/blob/main/images/TinyLLaVA_Video_R1.pdf)
+[![arXiv](https://img.shields.io/badge/Arxiv-2503.14905-AD1C18.svg?logo=arXiv)](https://github.com/ZhangXJ199/TinyLLaVA-Video-R1)
 [![Huggingface](https://img.shields.io/badge/🤗-%20Open%20In%20HF-blue.svg)](https://huggingface.co/Zhang199/TinyLLaVA-Video-R1)
 [![GitHub issues](https://img.shields.io/github/issues/ZhangXJ199/TinyLLaVA-Video-R1?color=critical&label=Issues)](https://github.com/ZhangXJ199/TinyLLaVA-Video-R1)
 [![GitHub Stars](https://img.shields.io/github/stars/ZhangXJ199/TinyLLaVA-Video-R1?style=social)](https://github.com/ZhangXJ199/TinyLLaVA-Video-R1)
