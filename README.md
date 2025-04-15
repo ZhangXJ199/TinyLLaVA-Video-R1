@@ -17,7 +17,7 @@
 
 <div align="center">
 
-[![arXiv](https://img.shields.io/badge/Arxiv-2503.14905-AD1C18.svg?logo=arXiv)](https://arxiv.org/abs/2504.09641)
+[![arXiv](https://img.shields.io/badge/Arxiv-2504.09641-AD1C18.svg?logo=arXiv)](https://arxiv.org/abs/2504.09641)
 [![Huggingface](https://img.shields.io/badge/🤗-%20Open%20In%20HF-blue.svg)](https://huggingface.co/Zhang199/TinyLLaVA-Video-R1)
 [![GitHub issues](https://img.shields.io/github/issues/ZhangXJ199/TinyLLaVA-Video-R1?color=critical&label=Issues)](https://github.com/ZhangXJ199/TinyLLaVA-Video-R1)
 [![GitHub Stars](https://img.shields.io/github/stars/ZhangXJ199/TinyLLaVA-Video-R1?style=social)](https://github.com/ZhangXJ199/TinyLLaVA-Video-R1)
@@ -172,7 +172,18 @@ The performance of TinyLLaVA-Video-R1 is significantly higher than TinyLLaVA-Vid
 
 ## 📝 Citation
 
-
+If you find our work interesting and helpful, please consider giving our repo a star. Additionally, if you would like to cite our work, please use the following format:
+```shell
+@misc{zhang2025tinyllavavideor1smallerlmmsvideo,
+      title={TinyLLaVA-Video-R1: Towards Smaller LMMs for Video Reasoning}, 
+      author={Xingjian Zhang and Siwei Wen and Wenjun Wu and Lei Huang},
+      year={2025},
+      eprint={2504.09641},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2504.09641}, 
+}
+```
 
 ## 📨 Contact
 
