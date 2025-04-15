@@ -173,7 +173,7 @@ The performance of TinyLLaVA-Video-R1 is significantly higher than TinyLLaVA-Vid
 ## 📝 Citation
 
 If you find our work interesting and helpful, please consider giving our repo a star. Additionally, if you would like to cite our work, please use the following format:
-```shell
+```bibtex
 @misc{zhang2025tinyllavavideor1smallerlmmsvideo,
       title={TinyLLaVA-Video-R1: Towards Smaller LMMs for Video Reasoning}, 
       author={Xingjian Zhang and Siwei Wen and Wenjun Wu and Lei Huang},
