@@ -50,8 +50,8 @@ deepspeed --include localhost:4,5,6,7 --master_port 29501 tinyllava/train/train_
     --save_total_limit 1 \
     --learning_rate 1e-5 \
     --weight_decay 0. \
-    --warmup_ratio 0.03 \
-    --lr_scheduler_type "cosine" \
+    --warmup_ratio 0.0 \
+    --lr_scheduler_type "constant" \
     --logging_steps 1 \
     --tf32 False \
     --model_max_length $MODEL_MAX_LENGTH \
