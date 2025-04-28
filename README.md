@@ -92,6 +92,8 @@ dataset
 
 **Option2**: You can train the model yourself: 
 
+Download the base model from [TinyLLaVA-Video](https://huggingface.co/Zhang199/TinyLLaVA-Video-Qwen2.5-3B-Group-16-512).
+
 Replace data paths and model paths with yours in `scripts/train/train_qwen2_coldstart.sh`
 
 ```bash
