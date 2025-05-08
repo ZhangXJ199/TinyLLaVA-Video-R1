@@ -18,7 +18,7 @@ dependencies = [
     "bitsandbytes", "peft", "pydantic", "markdown2[all]", "numpy", "scikit-learn",
     "gradio", "gradio_client", "requests", "httpx", "uvicorn", "fastapi",
     "einops", "einops-exts", "timm", "deepspeed==0.15.3", "ninja", "wandb",
-    "pytorchvideo", "fastparquet", "av", "decord", "trl", "math-verify"
+    "pytorchvideo", "fastparquet", "av", "decord", "trl==0.14.0", "math-verify"
 ]
 
 [project.optional-dependencies]
